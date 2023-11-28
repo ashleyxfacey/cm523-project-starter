@@ -1,0 +1,42 @@
+body {
+    max-width: 100%;
+    padding: 2em;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+    overflow: hidden;
+    line-height: 1.5em;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    width:100%;
+  }
+  
+  figure {
+    width: 48%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 1 em;
+    float: right;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  div {
+    width: 50%;
+    float: left;
+  }
+  
+  button {
+    display: block;
+    width: 25%;
+    margin: auto;
+  }
+  

@@ -1,0 +1,31 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  div {
+    max-width: 600px; 
+    padding: 1em;
+  }
+  
+  p {
+    margin-bottom: 1em; 
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding:0em;
+  }
+  
+  li {
+    list-style-type: none;
+    border:solid;
+    padding:1em;
+    margin:.5em;
+    height:50vh;
+  }

@@ -1,10 +1,24 @@
 //start button
-document.addEventListener("DOMContentLoaded", function () {
+/*document.addEventListener("DOMContentLoaded", function () {
     const welcome = document.querySelector(".welcome");
     const energy = document.querySelector(".energy");
     const button = document.querySelector(".button");
   
     button.addEventListener("click", function () {
+      energy.scrollIntoView({ behavior: "smooth" });
+    });
+  });*/
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const welcome = document.querySelector(".welcome");
+    const quiz = document.querySelector(".quiz");
+    const energy = document.querySelector(".energy");
+    const button = document.querySelector(".button");
+  
+    quiz.style.display = "none";
+  
+    button.addEventListener("click", function () {
+      quiz.style.display = "block";
       energy.scrollIntoView({ behavior: "smooth" });
     });
   });
@@ -32,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
       lowEnergy.scrollIntoView({ behavior: "smooth" });
     });
   });
-
+  
   //activityPreference
   document.addEventListener("DOMContentLoaded", function () {
     const competitive = document.querySelector(".competitive");
@@ -55,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
     nature.addEventListener("click", function (event) {
       event.preventDefault();
       localStorage.setItem("activityPreference", "nature");
-     document.querySelector(".location").scrollIntoView({ behavior: "smooth" });
+      document.querySelector(".location").scrollIntoView({ behavior: "smooth" });
     });
   
     creative.addEventListener("click", function (event) {
@@ -67,69 +81,105 @@ document.addEventListener("DOMContentLoaded", function () {
   
   //locationPreference
   document.addEventListener("DOMContentLoaded", function () {
-      const indoors = document.querySelector(".indoors");
-      const outdoors = document.querySelector(".outdoors");
+    const indoors = document.querySelector(".indoors");
+    const outdoors = document.querySelector(".outdoors");
   
-      indoors.addEventListener("click", function (event) {
-          event.preventDefault();
-          localStorage.setItem("locationPreference", "indoors");
-          window.location.href = "results.html";
-      });
-      outdoors.addEventListener("click", function (event) {
-          event.preventDefault();
-          localStorage.setItem("locationPreference", "outdoors");
-          window.location.href = "results.html";
-  
-      });
+    indoors.addEventListener("click", function (event) {
+      event.preventDefault();
+      localStorage.setItem("locationPreference", "indoors");
+      window.location.href = "results.html";
+    });
+    outdoors.addEventListener("click", function (event) {
+      event.preventDefault();
+      localStorage.setItem("locationPreference", "outdoors");
+      window.location.href = "results.html";
+    });
   });
-
+  
   //MAKING THE RESULTS
   document.addEventListener("DOMContentLoaded", function () {
-      // Retrieve the stored values from localStorage
-      const energyLevelPreference = localStorage.getItem("energyLevelPreference");
-      const activityPreference = localStorage.getItem("activityPreference");
-      const locationPreference = localStorage.getItem("locationPreference");
+    // Retrieve the stored values from localStorage
+    const energyLevelPreference = localStorage.getItem("energyLevelPreference");
+    const activityPreference = localStorage.getItem("activityPreference");
+    const locationPreference = localStorage.getItem("locationPreference");
   
-      // Decide which <ul> should be displayed based on preferences
-      const ulToShow = determineUlToShow(energyLevelPreference, activityPreference, locationPreference);
+    // Decide which <ul> should be displayed based on preferences
+    const ulToShow = determineUlToShow(
+      energyLevelPreference,
+      activityPreference,
+      locationPreference
+    );
   
-      // Display the selected <ul> and hide others
-      displayResults(ulToShow);
+    // Display the selected <ul> and hide others
+    displayResults(ulToShow);
   
-      function determineUlToShow(energyLevel, activity, location) {
-          // Your logic to determine which <ul> to display based on preferences
-          // You can use if-else or switch statements here
-          if (energyLevel === "highEnergy" && activity === "competitive" && location === "indoors") {
-              return "competitiveIndoors";
-          } else if (energyLevel === "highEnergy" && activity === "adventurous" && location === "indoors") {
-              return "adventurousIndoors";
-          } else if (energyLevel === "highEnergy" && activity === "competitive" && location === "outdoors") {
-              return "competitiveOutdoors";
-          } else if (energyLevel === "highEnergy" && activity === "adventurous" && location === "outdoors") {
-              return "adventurousOutdoors";
-          } else if (energyLevel === "lowEnergy" && activity === "nature" && location === "outdoors") {
-              return "natureOutdoors";
-          } else if (energyLevel === "lowEnergy" && activity === "nature" && location === "indoors") {
-              return "natureIndoors";
-          } else if (energyLevel === "lowEnergy" && activity === "creative" && location === "outdoors") {
-              return "creativeOutdoors";
-          } else if (energyLevel === "lowEnergy" && activity === "creative" && location === "indoors") {
-              return "creativeIndoors";
-          }
+    function determineUlToShow(energyLevel, activity, location) {
+      // Your logic to determine which <ul> to display based on preferences
+      // You can use if-else or switch statements here
+      if (
+        energyLevel === "highEnergy" &&
+        activity === "competitive" &&
+        location === "indoors"
+      ) {
+        return "competitiveIndoors";
+      } else if (
+        energyLevel === "highEnergy" &&
+        activity === "adventurous" &&
+        location === "indoors"
+      ) {
+        return "adventurousIndoors";
+      } else if (
+        energyLevel === "highEnergy" &&
+        activity === "competitive" &&
+        location === "outdoors"
+      ) {
+        return "competitiveOutdoors";
+      } else if (
+        energyLevel === "highEnergy" &&
+        activity === "adventurous" &&
+        location === "outdoors"
+      ) {
+        return "adventurousOutdoors";
+      } else if (
+        energyLevel === "lowEnergy" &&
+        activity === "nature" &&
+        location === "outdoors"
+      ) {
+        return "natureOutdoors";
+      } else if (
+        energyLevel === "lowEnergy" &&
+        activity === "nature" &&
+        location === "indoors"
+      ) {
+        return "natureIndoors";
+      } else if (
+        energyLevel === "lowEnergy" &&
+        activity === "creative" &&
+        location === "outdoors"
+      ) {
+        return "creativeOutdoors";
+      } else if (
+        energyLevel === "lowEnergy" &&
+        activity === "creative" &&
+        location === "indoors"
+      ) {
+        return "creativeIndoors";
       }
+    }
   
-      function displayResults(ulToShow) {
-          // Hide all <ul> elements
-          const allUlElements = document.querySelectorAll(".results ul");
-        
-          allUlElements.forEach((ul) => {
-              ul.style.display = "none";
-          });
+    function displayResults(ulToShow) {
+      // Hide all <ul> elements
+      const allUlElements = document.querySelectorAll(".results ul");
   
-          // Display the selected <ul>
-          const selectedUl = document.querySelector(`.${ulToShow}`);
-          if (selectedUl) {
-              selectedUl.style.display = "block";
-          }
+      allUlElements.forEach((ul) => {
+        ul.style.display = "none";
+      });
+  
+      // Display the selected <ul>
+      const selectedUl = document.querySelector(`.${ulToShow}`);
+      if (selectedUl) {
+        selectedUl.style.display = "block";
       }
+    }
   });
+  

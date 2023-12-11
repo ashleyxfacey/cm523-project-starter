@@ -137,9 +137,9 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 85vh;
     width: 80%;
-    padding: 2em;
+    padding: 0;
     margin: auto;
 }
 
@@ -246,6 +246,7 @@ a {
     width: 600px;
 }
 
+
 .highEnergy li a {
     color: #42033d;
 }
@@ -258,6 +259,8 @@ a {
     margin: 0;
     overflow: hidden;
 }
+
+
 
 @media (max-width: 850px) {
     .highEnergy ul {
@@ -331,6 +334,23 @@ a {
     }
 }
 
+/* Add a specific style for the clicked state */
+.highEnergyOption:active,
+.lowEnergyOption:active {
+    border-width: 20px;
+    /* Adjust the thickness as needed */
+}
+
+
+.highEnergyOption,
+.lowEnergyOption {
+    border: 2px solid #dd85a5;
+    border-radius: 10px;
+    margin: 0.5em;
+    width: 600px;
+    transition: border-width 0.5s ease;
+}
+
 .location {
     padding: 3em;
     margin: 0;
@@ -364,24 +384,25 @@ a {
     background-color: #f2e1bd;
     color: #42033d;
     padding: 3em;
+    margin: 0;
 }
 
-.about ul{
-display:flex;
-justify-content: space-between;
-gap:8px;
+.about ul {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
 }
 
-.about li{
-border: 2px solid #dd85a5;
-padding:1em;
-width:30%;
-text-align: center;
+.about li {
+    border: 2px solid #dd85a5;
+    padding: 1em;
+    width: 30%;
+    text-align: center;
 }
 
 .about li a {
-color:#42033d;
-text-decoration: none;
+    color: #42033d;
+    text-decoration: none;
 }
 
 @media (max-width: 850px) {
@@ -393,7 +414,7 @@ text-decoration: none;
 
     .about li {
         width: 40%;
-        margin: .25em;
+        margin: 0.25em;
         text-align: center;
         justify-content: space-between;
     }
@@ -403,21 +424,42 @@ text-decoration: none;
     }
 }
 
-.results{
+.competitive:active,
+.adventurous:active,
+.nature:active,
+.creative:active {
+    border-width: 20px;
+}
+
+
+/* Default border style */
+.competitive,
+.adventurous,
+.nature,
+.creative {
+    border: 2px solid #dd85a5;
+    border-radius: 10px;
+    margin: 0.5em;
+    width: 600px;
+    transition: border-width 0.5s ease;
+
+}
+
+.results {
     width: 60%;
     margin: auto;
 }
 
-.results li{
-list-style: disc;
-  font-size:1.25em;
-  font-family:"source-sans-pro";
+.results li {
+    list-style: disc;
+    font-size: 1.25em;
+    font-family: "source-sans-pro";
 }
 
 .results a {
     border: 2px solid #dd85a5;
     padding: 10px 20px;
-  margin-top:2em;
+    margin-top: 2em;
     background-color: #42033d;
     color: #f2e1bd;
     text-decoration: none;
@@ -425,7 +467,6 @@ list-style: disc;
     font-size: 1.5em;
     border-radius: 10px;
     transition: background-color 0.3s ease, border-color 0.3s ease;
-
 }
 
 .results a:hover {

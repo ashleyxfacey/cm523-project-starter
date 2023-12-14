@@ -9,177 +9,118 @@
     });
   });*/
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const welcome = document.querySelector(".welcome");
-    const quiz = document.querySelector(".quiz");
-    const energy = document.querySelector(".energy");
-    const button = document.querySelector(".button");
+  const welcome = document.querySelector(".welcome");
+  const quiz = document.querySelector(".quiz");
+  const energy = document.querySelector(".energy");
+  const button = document.querySelector(".button");
+  const competitive = document.querySelector(".competitive");
+  const adventurous = document.querySelector(".adventurous");
+  const nature = document.querySelector(".nature");
+  const creative = document.querySelector(".creative");
+  const highEnergy = document.querySelector(".highEnergy");
+  const lowEnergy = document.querySelector(".lowEnergy");
+  const highEnergyOption = document.querySelector(".highEnergyOption");
+  const lowEnergyOption = document.querySelector(".lowEnergyOption");
+  const indoors = document.querySelector(".indoors");
+  const outdoors = document.querySelector(".outdoors");
+  const goBtn = document.querySelector('button');
+
+  goBtn.addEventListener('click', checkAnswers);
   
-    quiz.style.display = "none";
-  
-    button.addEventListener("click", function () {
-      quiz.style.display = "block";
-      energy.scrollIntoView({ behavior: "smooth" });
-    });
+  console.log(quiz);
+  quiz.style.display = "none";
+
+  button.addEventListener("click", function () {
+    quiz.style.display = "block";
+    energy.scrollIntoView({ behavior: "smooth" });
   });
-  
-  //energyLevel preference
-  document.addEventListener("DOMContentLoaded", function () {
-    //  const energy = document.querySelector(".energy");
-    const highEnergy = document.querySelector(".highEnergy");
-    const lowEnergy = document.querySelector(".lowEnergy");
-    const highEnergyOption = document.querySelector(".highEnergyOption");
-    const lowEnergyOption = document.querySelector(".lowEnergyOption");
-  
-    highEnergyOption.addEventListener("click", function (event) {
-      event.preventDefault();
-      localStorage.setItem("energyLevelPreference", "highEnergy");
-      highEnergy.scrollIntoView({ behavior: "smooth" });
-      lowEnergy.style.display = "none";
-    });
-  
-    lowEnergyOption.addEventListener("click", function (event) {
-      event.preventDefault();
-      //alert("Clicked lowEnergyOption");
-      localStorage.setItem("energyLevelPreference", "lowEnergy");
-      highEnergy.style.display = "none";
-      lowEnergy.scrollIntoView({ behavior: "smooth" });
-    });
+
+
+  highEnergyOption.addEventListener("click", function (event) {
+    event.preventDefault();
+    localStorage.setItem("energyLevelPreference", "highEnergy");
+    highEnergy.scrollIntoView({ behavior: "smooth" });
+    lowEnergy.style.display = "none";
   });
-  
-  //activityPreference
-  document.addEventListener("DOMContentLoaded", function () {
-    const competitive = document.querySelector(".competitive");
-    const adventurous = document.querySelector(".adventurous");
-    const nature = document.querySelector(".nature");
-    const creative = document.querySelector(".creative");
-  
-    competitive.addEventListener("click", function (event) {
-      event.preventDefault();
-      localStorage.setItem("activityPreference", "competitive");
-      document.querySelector(".location").scrollIntoView({ behavior: "smooth" });
-    });
-  
-    adventurous.addEventListener("click", function (event) {
-      event.preventDefault();
-      localStorage.setItem("activityPreference", "adventurous");
-      document.querySelector(".location").scrollIntoView({ behavior: "smooth" });
-    });
-  
-    nature.addEventListener("click", function (event) {
-      event.preventDefault();
-      localStorage.setItem("activityPreference", "nature");
-      document.querySelector(".location").scrollIntoView({ behavior: "smooth" });
-    });
-  
-    creative.addEventListener("click", function (event) {
-      event.preventDefault();
-      localStorage.setItem("activityPreference", "creative");
-      document.querySelector(".location").scrollIntoView({ behavior: "smooth" });
-    });
+
+  lowEnergyOption.addEventListener("click", function (event) {
+    event.preventDefault();
+    //alert("Clicked lowEnergyOption");
+    localStorage.setItem("energyLevelPreference", "lowEnergy");
+    highEnergy.style.display = "none";
+    lowEnergy.scrollIntoView({ behavior: "smooth" });
   });
-  
-  //locationPreference
-  document.addEventListener("DOMContentLoaded", function () {
-    const indoors = document.querySelector(".indoors");
-    const outdoors = document.querySelector(".outdoors");
-  
+
+  competitive.addEventListener("click", function (event) {
+    event.preventDefault();
+    localStorage.setItem("activityPreference", "competitive");
+    document.querySelector(".location").scrollIntoView({ behavior: "smooth" });
+  });
+
+  adventurous.addEventListener("click", function (event) {
+    event.preventDefault();
+    localStorage.setItem("activityPreference", "adventurous");
+    document.querySelector(".location").scrollIntoView({ behavior: "smooth" });
+  });
+
+  nature.addEventListener("click", function (event) {
+    event.preventDefault();
+    localStorage.setItem("activityPreference", "nature");
+    document.querySelector(".location").scrollIntoView({ behavior: "smooth" });
+  });
+
+  creative.addEventListener("click", function (event) {
+    event.preventDefault();
+    localStorage.setItem("activityPreference", "creative");
+    document.querySelector(".location").scrollIntoView({ behavior: "smooth" });
+  });
+ 
     indoors.addEventListener("click", function (event) {
       event.preventDefault();
       localStorage.setItem("locationPreference", "indoors");
-      window.location.href = "results.html";
+      
     });
     outdoors.addEventListener("click", function (event) {
       event.preventDefault();
       localStorage.setItem("locationPreference", "outdoors");
-      window.location.href = "results.html";
     });
-  });
+
+
+    
   
-  //MAKING THE RESULTS
-  document.addEventListener("DOMContentLoaded", function () {
-    // Retrieve the stored values from localStorage
-    const energyLevelPreference = localStorage.getItem("energyLevelPreference");
-    const activityPreference = localStorage.getItem("activityPreference");
-    const locationPreference = localStorage.getItem("locationPreference");
-  
-    // Decide which <ul> should be displayed based on preferences
-    const ulToShow = determineUlToShow(
-      energyLevelPreference,
-      activityPreference,
-      locationPreference
-    );
-  
-    // Display the selected <ul> and hide others
-    displayResults(ulToShow);
-  
-    function determineUlToShow(energyLevel, activity, location) {
-      // Your logic to determine which <ul> to display based on preferences
-      // You can use if-else or switch statements here
-      if (
-        energyLevel === "highEnergy" &&
-        activity === "competitive" &&
-        location === "indoors"
-      ) {
-        return "competitiveIndoors";
-      } else if (
-        energyLevel === "highEnergy" &&
-        activity === "adventurous" &&
-        location === "indoors"
-      ) {
-        return "adventurousIndoors";
-      } else if (
-        energyLevel === "highEnergy" &&
-        activity === "competitive" &&
-        location === "outdoors"
-      ) {
-        return "competitiveOutdoors";
-      } else if (
-        energyLevel === "highEnergy" &&
-        activity === "adventurous" &&
-        location === "outdoors"
-      ) {
-        return "adventurousOutdoors";
-      } else if (
-        energyLevel === "lowEnergy" &&
-        activity === "nature" &&
-        location === "outdoors"
-      ) {
-        return "natureOutdoors";
-      } else if (
-        energyLevel === "lowEnergy" &&
-        activity === "nature" &&
-        location === "indoors"
-      ) {
-        return "natureIndoors";
-      } else if (
-        energyLevel === "lowEnergy" &&
-        activity === "creative" &&
-        location === "outdoors"
-      ) {
-        return "creativeOutdoors";
-      } else if (
-        energyLevel === "lowEnergy" &&
-        activity === "creative" &&
-        location === "indoors"
-      ) {
-        return "creativeIndoors";
-      }
+    indoors.addEventListener("click", function (event) {
+      event.preventDefault();
+      localStorage.setItem("locationPreference", "indoors");
+      
+    });
+    outdoors.addEventListener("click", function (event) {
+      event.preventDefault();
+      localStorage.setItem("locationPreference", "outdoors");
+    
+    });
+
+
+
+function checkAnswers() {
+  // Clear all errors
+  const activityPreference = localStorage.getItem("activityPreference");
+  const energyLevelPreference = localStorage.getItem("energyLevelPreference");
+  const locationPreference = localStorage.getItem("locationPreference");
+
+  if (activityPreference && energyLevelPreference && locationPreference) {
+    // All questions answered, redirect to results page
+    window.location.href = "results.html";
+  } else {
+    // Display alerts for unanswered questions
+    if  (!energyLevelPreference){
+      alert('You skipped the first question. Please refresh the page and start again.');
+    } else if (!activityPreference) {
+      alert('You skipped the second question.');
+    } else if (!locationPreference) {
+      alert('You skipped the last question.');
     }
-  
-    function displayResults(ulToShow) {
-      // Hide all <ul> elements
-      const allUlElements = document.querySelectorAll(".results ul");
-  
-      allUlElements.forEach((ul) => {
-        ul.style.display = "none";
-      });
-  
-      // Display the selected <ul>
-      const selectedUl = document.querySelector(`.${ulToShow}`);
-      if (selectedUl) {
-        selectedUl.style.display = "block";
-      }
-    }
-  });
-  
+    // Return false to indicate that not all questions are answered
+    return false;
+  }
+  return true;
+}

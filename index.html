@@ -10,7 +10,7 @@
   <!-- PUT A DESCRIPTION IN HERE -->
   <meta name="description" content="Design the perfect date for you and your partner" />
   <!-- LINK TO NORMALIZE (FOR CONSISTENCY) -->
-  <link rel="stylesheet" href="styles.normalize.css" />
+  <link rel="stylesheet" href="styles/normalize.css" />
   <!-- LINK TO ANY FRAMEWORK STYLES HERE-->
   <!-- LINK TO YOUR STYLES -->
   <link rel="stylesheet" href="styles/styles.css" />
@@ -37,11 +37,7 @@
           <a href="about.html" class="navLink">About</a>
         </li>
       </ul>
-      <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </div>
+ 
     </nav>
   </header>
 
@@ -60,48 +56,57 @@
     <img src="images/cheers.jpg" alt="Cheers with two champagne glasses">
   </div>
 
-<div class="quiz">
-  <div class="energy">
-    <p>Are you looking for a high-energy, adrenaline-filled date? Or a more calm, low-energy, relaxing date?</p>
-    <ul>
-      <li class="highEnergyOption"><a href="#"><img src="images/airhockeydate.jpeg"
-            alt="two people playing air hockey at an arcade">
-          High-energy, baby!</a></li>
-      <li class="lowEnergyOption"><a href="#"><img src="images/picnicdate.jpeg"
-            alt="two people sitting on a picnic blanket with fruit and wine glasses">
-             Low-energy, please.</a></li>
+  <div class="quiz">
+    <div class="energy">
+      <p>Are you looking for a high-energy, adrenaline-filled date? Or a more calm, low-energy, relaxing date? <span id="error-energy" class="error">Please select an option.</span></p>
+      <ul>
+        <li class="highEnergyOption"><a href="#">
+            <figure> <img src="images/airhockeydate.jpeg" alt="two people playing air hockey at an arcade">
+              <figcaption>High-energy, baby!</figcaption>
+            </figure>
+          </a></li>
+        <li class="lowEnergyOption"><a href="#">
+            <figure>
+              <img src="images/picnicdate.jpeg" alt="two people sitting on a picnic blanket with fruit and wine glasses">
+              <figcaption> Low-energy, please.</figcaption>
+            </figure>
+          </a></li>
 
-    </ul>
-  </div>
+      </ul>
+    </div>
 
-  <div class="highEnergy">
-    <p>Are you feeling competitive or adventurous?</p>
-    <ul>
-      <li class="competitive"> <a href="#"><img src="images/gaming.jpeg" alt="couple playing video games and laughing">
-          I need a little competition in my life</a> </li>
-      <li class="adventurous"> <a href="#"><img src="images/hiking.jpeg"
-            alt="couple hiking up a rocky terrain and smiling">I wanted to be an explorer back in the day</a> </li>
-    </ul>
-  </div>
+    <div class="highEnergy">
+      <p>Are you feeling competitive or adventurous?</p>
+      <ul>
+        <li class="competitive"> <a href="#">
+          <figure><img src="images/gaming.jpeg" alt="couple playing video games and laughing">
+         <figcaption> I need a little competition in my life</figcaption></figure></a> </li>
+        <li class="adventurous"> <a href="#">
+          <figure><img src="images/hiking.jpeg" alt="couple hiking up a rocky terrain and smiling"><figcaption>I wanted to be an explorer back in the day</figcaption></figure></a> </li>
+      </ul>
+    </div>
 
-  <div class="lowEnergy">
-    <p>Would you rather become one with nature or tap into your creative spirit?</p>
-    <ul>
-      <li class="nature"><a href="#"><img src="images/naturecouple.jpeg" alt="couple sitting on the dock of a river">
-          Mother nature is calling my name</a> </li>
-      <li class="creative"> <a href="#"><img src="images/paintingcouple.jpeg" alt="couple painting pottery">
-        My creative juices are flowing</a> </li>
-    </ul>
-  </div>
+    <div class="lowEnergy">
+      <p>Would you rather become one with nature or tap into your creative spirit?</p>
+      <ul>
+        <li class="nature"><a href="#">
+          <figure><img src="images/naturecouple.jpeg" alt="couple sitting on the dock of a river"><figcaption>
+            Mother nature is calling my name</figcaption></figure></a> </li>
+        <li class="creative"> <a href="#">
+          <figure><img src="images/paintingcouple.jpeg" alt="couple painting pottery"><figcaption>
+            My creative juices are flowing</figcaption></figure></a> </li>
+      </ul>
+    </div>
 
-  <div class="location">
-    <p>Last question! Based on the weather forecast for the day of your date, would you rather be indoors or outdoors?
-    </p>
-    <ul>
-      <li class="indoors"> <a href="results.html">Indoors</a></li>
-      <li class="outdoors"> <a href="results.html">Outdoors</a></li>
-    </ul>
-  </div>
+    <div class="location">
+      <p>Last question! Based on the weather forecast for the day of your date, would you rather be indoors or outdoors?
+      </p>
+      <ul>
+        <li class="indoors"> <a href="results.html">Indoors</a></li>
+        <li class="outdoors"> <a href="results.html">Outdoors</a></li>
+      </ul>
+    </div>
+    <button>DESIGN MY DATE</button>
   </div>
 </body>
 
